@@ -1,0 +1,32 @@
+name: Black on Push
+description: Run Black code formatter on push to ensure code style consistency.
+on:
+  push:
+    branches: all
+jobs:
+  black:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install Black
+        run: pip install black
+      - name: Run Black
+        run: black . --check  
+  pycodestyle:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+      - name: Install pycodestyle
+        run: pip install pycodestyle
+      - name: Run pycodestyle
+        run: pycodestyle .
