@@ -1,14 +1,15 @@
-name: Black on Push
+name: Black on Commit
+
 description: Run Black code formatter on commit to ensure code style consistency.
-on:
-  commit:
-    branches: all
+
+on: [commit]
+
 jobs:
   black:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
@@ -21,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
