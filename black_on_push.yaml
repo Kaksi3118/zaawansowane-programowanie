@@ -1,7 +1,7 @@
 name: Black on Push
-description: Run Black code formatter on push to ensure code style consistency.
+description: Run Black code formatter on commit to ensure code style consistency.
 on:
-  push:
+  commit:
     branches: all
 jobs:
   black:
